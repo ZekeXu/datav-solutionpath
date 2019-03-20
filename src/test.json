@@ -1,0 +1,127 @@
+{
+  "throttle": true,
+  "maxWaitingRequest": 1000,
+  "nodes": {
+    "entry": [{
+      "id": "UUID1",
+      "name": "Entry",
+      "description": "",
+      "config": {
+        "outputSlot": [{
+          "key": "image",
+          "type": "file"
+        }]
+      }
+    }],
+    "exit": [{
+      "id": "UUID2",
+      "name": "Exit",
+      "description": "",
+      "config": {
+        "inputSlot": [{
+          "key": "results"
+        }]
+      }
+    }],
+    "code": [{
+      "id": "UUID3",
+      "name": "code demo",
+      "description": "",
+      "type": "py",
+      "config": {
+        "fileName": "name/of/the/file/include/extension",
+        "inputSlot": [{
+          "key": "p1"
+        }],
+        "outputSlot": [{}]
+      }
+    }],
+    "model": [{
+        "id": "UUID4",
+        "type": "custom",
+        "name": "model demo",
+        "description": "",
+        "config": {
+          "project": "b4afc896-5795-4ec5-baea-4b8b53ce3797",
+          "experiment": "b4afc896-5795-4ec5-baea-4b8b53ce37ab"
+        },
+        "url": "http://121212"
+      },
+      {
+        "id": "UUID5",
+        "type": "embedded",
+        "config": {
+          "fileName": "name/of/the/file/include/extension"
+        },
+        "url": "http://121212"
+      }
+    ],
+    "static": [{
+        "id": "UUID6",
+        "type": "string",
+        "config": {
+          "value": "Hello World"
+        }
+      },
+      {
+        "id": "UUID7",
+        "type": "file",
+        "config": {
+          "fileName": "name/of/the/file/include/extension",
+          "size": 1234567
+        }
+      }
+    ]
+  },
+  "edges": [{
+      "from": {
+        "id": "UUID1",
+        "slot": 0
+      },
+      "to": {
+        "id": "UUID3",
+        "slot": 0
+      }
+    },
+    {
+      "from": {
+        "id": "UUID3",
+        "slot": 0
+      },
+      "to": {
+        "id": "UUID4",
+        "slot": 0
+      }
+    },
+    {
+      "from": {
+        "id": "UUID6",
+        "slot": 0
+      },
+      "to": {
+        "id": "UUID4",
+        "slot": 0
+      }
+    },
+    {
+      "from": {
+        "id": "UUID7",
+        "slot": 0
+      },
+      "to": {
+        "id": "UUID4",
+        "slot": 0
+      }
+    },
+    {
+      "from": {
+        "id": "UUID4",
+        "slot": 0
+      },
+      "to": {
+        "id": "UUID2",
+        "slot": 0
+      }
+    }
+  ]
+}
