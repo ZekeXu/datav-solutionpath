@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "8f65eb4e3473b9b9c819",
+    "revision": "d0ddcf671d792636b0ed",
     "url": "/datav-solutionpath/static/css/main.fba09f22.chunk.css"
   },
   {
-    "revision": "8f65eb4e3473b9b9c819",
-    "url": "/datav-solutionpath/static/js/main.8f65eb4e.chunk.js"
+    "revision": "d0ddcf671d792636b0ed",
+    "url": "/datav-solutionpath/static/js/main.d0ddcf67.chunk.js"
   },
   {
     "revision": "526bf306f1a06b2bd7ea",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/datav-solutionpath/static/js/2.44d45279.chunk.js"
   },
   {
-    "revision": "9c37904f6caed1e045449a7d027c53b4",
+    "revision": "86f8fc4a73068f8a6c4eb59bc7d26f1d",
     "url": "/datav-solutionpath/index.html"
   }
 ];

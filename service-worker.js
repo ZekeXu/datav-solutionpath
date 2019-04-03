@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/datav-solutionpath/precache-manifest.f38e77d9552dee097392971fdab8b173.js"
+  "/datav-solutionpath/precache-manifest.2453c474e7490aebbefbeca9b53914d1.js"
 );
 
 workbox.clientsClaim();
