@@ -27,12 +27,12 @@ class ChartView extends PureComponent {
   formatData(data) {
     const nodes = [];
     const links = [];
-    Object.values(data.nodes).forEach((sNodes, i) => {
-      sNodes.forEach((n) => {
+    Object.keys(data.nodes).forEach((key, i) => {
+      data.nodes[key].forEach((n) => {
         nodes.push({
           id: n.id,
           group: i + 1,
-          name: n.name,
+          name: `[${key}]_${n.name || ' '}`,
         });
       });
     });
@@ -95,7 +95,7 @@ class ChartView extends PureComponent {
 
       node
       .append("title")
-      .text(d => d.id + ' --- ' + d.name);
+      .text(d => d.name + '_' + d.id);
     
     const text = svg
       .append('g')
@@ -106,7 +106,7 @@ class ChartView extends PureComponent {
       .style('file', '#0000ff')
       .attr('width', 10)
       .attr('height', 10)
-      .text(d => d.id + '__' + d.name);
+      .text(d => d.name + '_' + d.id.substr(-10));
 
     simulation.on("tick", () => {
       link

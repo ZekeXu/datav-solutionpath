@@ -33,8 +33,19 @@ class App extends Component {
       return;
     }
 
+    let data = JSON.parse(sourceData);
+    
+    if (Object.keys(data).includes('solutionPath')) {
+      data = data.solutionPath;
+    }
+
+    if (!['nodes', 'edges'].every(key => data[key])) {
+      alert('数据格式不正确，缺少nodes、edges');
+      return;
+    }
+
     this.setState({
-      data: JSON.parse(sourceData),
+      data,
     });
   }
 
@@ -44,9 +55,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <nav class="navbar navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">
-            <img src={Logo} width="30" height="30" style={{ marginRight: 12 }} class="d-inline-block align-top" alt="" />
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href="#">
+            <img src={Logo} width="30" height="30" style={{ marginRight: 12 }} className="d-inline-block align-top" alt="" />
             Data visualization for SolutionPath
           </a>
         </nav>
