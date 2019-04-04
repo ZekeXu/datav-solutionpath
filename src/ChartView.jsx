@@ -67,12 +67,40 @@ class ChartView extends PureComponent {
       .map(d => Object.create(d));
     const simulation = d3
       .forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id))
+      .force("link", d3.forceLink(links).id(d => d.id).distance(100).strength(1))
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter(width / 2, height / 2));
 
 
     const svg = d3.select(this.chartRef.current);
+
+    // svg.append('defs').append('marker')
+    // // .attr({'id':'arrowhead',
+    // //     'viewBox':'-0 -5 10 10',
+    // //     'refX':13,
+    // //     'refY':0,
+    // //     'orient':'auto',
+    // //     'markerWidth':13,
+    // //     'markerHeight':13,
+    // //     'xoverflow':'visible'})
+    // .append('svg:path')
+    // .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+    // .attr('fill', '#999')
+    // .style('stroke','none');
+
+  //   svg.append("svg:defs").selectAll("marker")
+  //   .data(["end"])      // Different link/path types can be defined here
+  // .enter().append("svg:marker")    // This section adds in the arrows
+  //   .attr("id", String)
+  //   .attr("viewBox", "0 -5 10 10")
+  //   .attr("refX", 15)
+  //   .attr("refY", -1.5)
+  //   .attr("markerWidth", 6)
+  //   .attr("markerHeight", 6)
+  //   .attr("orient", "auto")
+  // .append("svg:path")
+  //   .attr("d", "M0,-5L10,0L0,5");
+
     const link = svg
       .append("g")
       .attr("stroke", "#999")
@@ -80,7 +108,8 @@ class ChartView extends PureComponent {
       .selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke-width", d => Math.sqrt(d.value));
+      .attr("stroke-width", d => Math.sqrt(d.value))
+      .attr("marker-end", "url(#end)");
 
     const node = svg
       .append("g")
